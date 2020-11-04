@@ -197,7 +197,7 @@ def exo20() :
     print(newchaine)
 
 def exo21() :
-    print("Exercice 20")
+    print("Exercice 21")
     print("Compter le nombre de voyelle")
     chaine = input("Saissisez votre chaine de caractère : ")
     voyelle = ["a","e","i","o","u","y"]
@@ -207,8 +207,62 @@ def exo21() :
             compt +=1
     print("Il y a ",compt,"voyelle dans ce mot")
 
+def exo22() :
+    print("Exercice 22")
+    print("Afficher le premier mot d'une phrase")
+    chaine = input("Saissisez votre chaine de caractère : ")
+    words = chaine.split()
+    print(words[0])
+
+def exo23() :
+    print("Exercice 23")
+    print("Afficher l'extension d'un fichier")
+    chaine = input("Saissisez votre chaine de caractère : ")
+    temp = len(chaine)-1
+    while temp > 0  and chaine[temp]!="." :
+        temp-=1
+    print(chaine[temp:len(chaine)])
+
+def exo24():
+    print("Exercice 24")
+    print("Savoir si un mot est un palindrome")
+    chaine = input("Saissisez votre chaine de caractère : ")
+    palin = True
+    temp = 0
+    while palin == True and temp < len(chaine)//2 :
+        if chaine[temp] != chaine[len(chaine)-temp-1] :
+            palin = False
+        temp+=1
+    if palin == True :
+        print(chaine, " est un palindrome")
+    else :
+        print(chaine, " n'est pas un palindrome")
+
+def exo24v2():
+    print("Exercice 24v2")
+    print("Savoir si un mot est un palindrome")
+    chaine = input("Saissisez votre chaine de caractère : ")
+    if chaine == chaine[::-1]:
+        print(chaine, " est un palindrome")
+    else :
+        print(chaine, "n'est pas un palindrome")
+
+def exo25():
+    print("Exercice 25")
+    print("Renvoyer l'inverse d'un mot")
+    chaine = input("Saissisez votre chaine de caractère : ")
+    print(chaine[::-1])
+
+def exo26():
+    print("Exercice 26")
+    print("Renvoyer tout les mots commençant par a")
+    chaine = input("Saissisez votre chaine de caractère : ")
+    words = chaine.split()
+    for word in words :
+        if word[0]== "a" :
+            print(word)
 
 if __name__ == "__main__":
-    exo21()
+    exo26()
 
 
