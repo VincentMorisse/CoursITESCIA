@@ -1,5 +1,9 @@
+from ast import Param
+from itertools import combinations
 from math import *
 import math
+import re
+import itertools
 
 def checkInputIsInt() :
     try:
@@ -262,7 +266,206 @@ def exo26():
         if word[0]== "a" :
             print(word)
 
+def exo27():
+    print("Exercice 27")
+    print("Renvoyer le mot le plus long")
+    chaine = input("Saissisez votre chaine de caractère : ")
+    words = chaine.split()
+    temp = 0
+    lenmax = 0
+    longestword = 0
+    for word in words :
+        if len(word) > lenmax :
+            lenmax = len(word)
+            longestword = temp
+        temp +=1
+    print("Le mot le plus long est ", words[longestword])
+        
+def exo28(param):
+    print("Exercice 28")
+    print("Test si liste est vide")
+    if len(param) == 0 :
+        print("La liste ou chaine est vide")
+    else :
+        print("La liste ou chaine n'est pas vide")
+
+def exo29(param):
+    print("Exercice 29")
+    print("Supprimer les doublon d'une liste")
+    newListe = list(set(param))
+    print(newListe)
+
+def exo30(param1, param2) :
+    print("Exercice 30")
+    print("Chercher valeur commune de deux liste")
+    for temp1 in param1 :
+        if temp1 in param2 :
+            print(temp1, "est un valeur commune au deux liste")
+
+def exo31(param) :
+    print("Exercice 31")
+    print("Séparer valeur pair et impair")
+    pair =[]
+    impair = []
+    for temp in param :
+        if temp%2 ==0 :
+            pair.append(temp)
+        else :
+            impair.append(temp)
+    print("Valeur pair :", pair)
+    print("Valeur impair :", impair)
+
+def exo32(param):
+    print("Exercice 32")
+    print("Afficher toutes les combinaisons possible d'une liste")
+    all_combi = []
+    for temp in range(len(param) +1):
+        combi= itertools.combinations(param, temp)
+        combi_list = list(combi)
+        all_combi += combi_list
+    print(all_combi)
+    
+
+def exo33(param):
+    print("Exercice 33")
+    print("Afficher un caractre sur deux")
+    temp = 0
+    tempChaine = ""
+    for carac in param :
+        if temp%2 ==0 :
+            tempChaine += carac
+        temp +=1
+    print(tempChaine)
+
+def exo34(param) :
+    print("Exercice 34")
+    print("Récupérer les valeur d'un liste supérieur à une certaine valeur")
+    newListe = []
+    for note in param :
+        if note > 10:
+            newListe.append(note)
+    print(newListe)
+
+def exo35(phrase) :
+    print("Exercice 35")
+    print("Compter les occurence de mot dans une liste en utilisant un dictionnaire")
+    param = phrase.split()
+    dico = {}
+    for word in param :
+        if word not in dico :
+            dico[word] = 1
+        else :
+            dico[word] += 1
+    print(dico)
+
+def exo36(param) :
+    print("Exercice 36")
+    print("Supprimer les doubles espaces")
+    temp = re.sub(' +', ' ', param)
+    print(temp)
+
+def exo37(param11, param22) :
+    print("Exercice 37")
+    print("Mettre les mots commun de deux liste dans un ensemble")
+    param1 = param11.split()
+    param2 = param22.split()
+    ensemble = set()
+    for word in param1 :
+        if word in param2 :
+           ensemble.add(word)
+    
+    print(ensemble)
+
+def exo38() :
+    print("Exercice 38")
+    print("Inversé premier et dernier mot")
+    chaine = input('Saisir une phrase : ')
+    words = chaine.split()
+    tmp = words[-1]
+    words[-1] = words[0]
+    words[0] = tmp
+    print(" ".join(words))
+
+def exo39() :
+    print("Exercice 39")
+    print("Compter le nombre de mot")
+    chaine = input('Saisir une phrase : ') 
+    words = chaine.split()
+    print(len(words))
+
+def exo41(liste, div) :
+    print("Exercice 41")
+    print("Compter le nombre d'élément de la liste divisible par val")
+    tmp = 0
+    for temp in liste :
+        if temp%div == 0 :
+            tmp +=1
+    print(tmp)
+
+def exo42(liste, val) :
+    print("Exercice 42")
+    print("Compter le nombre d'apparition d'un nombre dans une liste")
+    tmp = 0
+    for temp in liste :
+        if temp == val :
+            tmp +=1
+    print(tmp)
+
+def exo43(chaine) :
+    print("Exercice 43")
+    print("Insérer un * entre chaque carac d'une phrase")
+    res =""
+    for temp in range(0,len(chaine)) :
+        if temp != len(chaine) -1 :
+            res += chaine[temp] + "*"
+        else :
+            res += chaine[temp]
+    print(res)
+
+def exo44(liste) :
+    print("Exercice 44")
+    print("Passer en uppercase")
+    res = []
+    for tmp in liste :
+        res.append(tmp.upper())
+    print(res)
+
+def exo45(chaine) :
+    print("Exercice 45")
+    print("Calculer lower et uper case")
+    uper =0
+    lower =0
+    for char in chaine :
+        if char.isupper() :
+            uper +=1
+        if char.islower() :
+            lower +=1
+    print("Il y a ", uper," maj et ", lower,"minuscule")
+
+def exo46(val) :
+    if val == 0 :
+        print("0")
+    else :
+        tmp = []
+        while val > 0 :
+            tmp.append(val % 10)
+            val = val // 10
+        print(tmp)
+
+def exo47(param11, param22) :
+    print("Exercice 37")
+    print("Mettre les mots commun de deux liste dans un ensemble")
+    param1 = param11.split()
+    param2 = param22.split()
+    ensemble = []
+    for word in param1 :
+        if word in param2 :
+           ensemble.append(word)
+    print(ensemble)
+
 if __name__ == "__main__":
-    exo26()
+    exo32([1,2,3,4]);
+
+
 
 
