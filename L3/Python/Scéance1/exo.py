@@ -161,7 +161,54 @@ def exo16() :
     for char in chaine :
         print(char)
 
+def exo17() :
+    print("Exercice 17")
+    chaine = input("Saissisez votre chaine de caractère : ")
+    temp = []
+    for char1 in chaine :
+        if char1 not in temp :
+            temp.append(char1)
+            somme = 0
+            for char2 in chaine :
+                if char2 ==char1 :
+                    somme +=1
+            print("Le caractère :",char1," figure ", somme," fois dans votre chaine de caractère")
+
+def exo18() :
+    print("Exercice 18")
+    chaine = input("Saissisez votre chaine de caractère : ")
+    tempValue = 0
+    for char in chaine :
+        if char == "a" :
+            print("La lettre a se trouve à la position :", tempValue)
+        tempValue +=1
+
+def exo19() :
+    print("Exercice 19")
+    list = ["laptop", "iphone", "tablet"]
+    for word in list :
+        print(word, "contient ", len(word), " caractère(s)")
+
+def exo20() :
+    print("Exercice 20")
+    print("Inversser le premier et dernier caractère d'une liste")
+    chaine = input("Saissisez votre chaine de caractère : ")
+    newchaine = chaine[len(chaine)-1] + chaine[1:len(chaine)-1] +chaine[0]
+    print(newchaine)
+
+def exo21() :
+    print("Exercice 20")
+    print("Compter le nombre de voyelle")
+    chaine = input("Saissisez votre chaine de caractère : ")
+    voyelle = ["a","e","i","o","u","y"]
+    compt= 0
+    for char in chaine :
+        if char in voyelle :
+            compt +=1
+    print("Il y a ",compt,"voyelle dans ce mot")
+
+
 if __name__ == "__main__":
-    exo16()
+    exo21()
 
 
